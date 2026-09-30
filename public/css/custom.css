@@ -1,0 +1,223 @@
+/* public/css/custom.css */
+/* Aqui van tus estilos propios que ajustan o extienden Bootstrap. */
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Opcional: Ajustes para títulos para darles peso estilizado */
+h1, h2, h3, h4, h5, h6, .display-4, .display-5 {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700; /* Hace que los títulos resalten más */
+  letter-spacing: -0.5px; /* Le da el estilo elegante característico de marcas como Apple */
+}
+
+/* Hero de la pagina principal (fondo oscuro tipo Uber) */
+.hero-seccion {
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Fila de categorias con scroll horizontal (tipo Uber Eats) */
+.categorias-scroll {
+  scrollbar-width: thin;
+}
+
+.categoria-card {
+  flex: 0 0 auto;
+  width: 90px;
+}
+
+.categoria-icono {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+#sliderPrincipal .carousel-inner {
+  /* Para navegadores basados en WebKit (Chrome, Safari, Edge) */
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+  -webkit-mask-composite: source-in; /* Crucial para que se fusionen ambos degradados */
+
+  /* Estándar oficial (Firefox y futuros navegadores) */
+  mask-image: 
+    linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+  mask-composite: intersect; /* Crucial para que se fusionen ambos degradados */
+}
+
+/* =====================================================
+   BOTÓN FLOTANTE DE WHATSAPP
+===================================================== */
+
+.whatsapp-widget {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =====================================================
+   MENSAJE FLOTANTE
+===================================================== */
+
+.whatsapp-tooltip {
+    background-color: #ffffff;
+
+    color: #212529;
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateX(15px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    white-space: nowrap;
+}
+
+
+/* Mostrar texto cuando pasemos el mouse */
+
+.whatsapp-widget:hover .whatsapp-tooltip {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(0);
+}
+
+
+/* =====================================================
+   BURBUJA DE WHATSAPP
+===================================================== */
+
+.whatsapp-float {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    background-color: #25d366;
+
+    color: #ffffff;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    font-size: 36px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.30);
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    animation: whatsapp-pulse 2s infinite;
+}
+
+
+/* Hover */
+
+.whatsapp-float:hover {
+    color: #ffffff;
+
+    background-color: #1ebe5d;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 7px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Icono */
+
+.whatsapp-float i {
+    line-height: 1;
+}
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+@keyframes whatsapp-pulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(37, 211, 102, 0.55),
+            0 5px 20px rgba(0, 0, 0, 0.30);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 16px rgba(37, 211, 102, 0),
+            0 5px 20px rgba(0, 0, 0, 0.30);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(37, 211, 102, 0),
+            0 5px 20px rgba(0, 0, 0, 0.30);
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .whatsapp-widget {
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .whatsapp-float {
+        width: 58px;
+        height: 58px;
+
+        font-size: 32px;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
+    }
+
+}
